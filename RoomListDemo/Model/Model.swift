@@ -13,23 +13,23 @@ struct RoomList: Decodable {
     var success: Bool
 }
 
-struct RoomData: Decodable {
+struct RoomData: Codable {
     var org: Org?
     var property: Property?
     var room: Room?
 }
 
-struct Org: Decodable {
+struct Org: Codable {
     var id: Int?
     var name: String?
 }
 
-struct Property: Decodable {
+struct Property: Codable {
     var id: Int?
     var name: String?
 }
 
-struct Room: Decodable {
+struct Room: Codable {
     var id: Int?
     var name: String?
 }

@@ -50,13 +50,15 @@ private extension RoomListViewModel {
                 self.deleteAllObjects(entityName: "CDRepo")
             }
             print("Rooms data are ",roomList)
-//            for room in roomList{
+            for room in roomList{
+                _ = try? JSONEncoder().encode(room)
+                
 //                let cdRepo = CDRepo(context: self.viewContext)
 //                cdRepo.nodeId = repo.nodeId
 //                cdRepo.name = repo.name
 //                cdRepo.fullName = repo.full_name
 //                cdRepo.detailDescription = repo.detailDescription
-//            }
+            }
 //            AppDelegate.shared.saveContext()
 //            callback(repos.count > 0)
             callback(true)
