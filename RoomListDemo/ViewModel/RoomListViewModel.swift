@@ -15,14 +15,17 @@ class RoomListViewModel {
     var rooms: Box<[CDRoomData]> = Box([])
     
     func getRoomList() {
+        START_LOADING_VIEW()
         loadSavedRoomList { [weak self] (roomListx) in
             if let roomList = roomListx , roomList.count > 0 {
+                STOP_LOADING_VIEW()
                 self?.rooms.value = roomList
             }else
             {
                 self?.fetchRoomListFromServer { [weak self] (dataExists) in
                     if dataExists
                     {
+                        STOP_LOADING_VIEW()
                         self?.getRoomList()
                     }
                 }

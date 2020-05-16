@@ -8,6 +8,7 @@
 
 import Foundation
 
+//MARK: Singletons
 class CustomDate {
    private var date: Date?
     private init() { date = Date() }
@@ -62,7 +63,7 @@ func START_LOADING_VIEW()  {
         DispatchQueue.main.async {
             let loadingView = LoadingView()
             loadingView.tag = LOADING_VIEW_TAG
-            APP_KEY_WINDOW??.addSubview(loadingView)
+            APP_KEY_WINDOW?.addSubview(loadingView)
             loadingView.startAnimation()
         }
     }
@@ -74,7 +75,7 @@ func START_LOADING_VIEW()  {
 
 func STOP_LOADING_VIEW()  {
     DispatchQueue.main.async {
-        let loadingView = APP_KEY_WINDOW??.viewWithTag(LOADING_VIEW_TAG) as? LoadingView
+        let loadingView = APP_KEY_WINDOW?.viewWithTag(LOADING_VIEW_TAG) as? LoadingView
         loadingView?.stopAnimation()
     }
 }

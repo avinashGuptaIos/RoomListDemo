@@ -32,11 +32,12 @@ class LockDetailsTableViewCell: UITableViewCell {
     func setUpLockDetailsTableViewCell(lockDetails: CDLockDetails, indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            headingLabel.text = "Mac : "
-            subHeadingLabel.text = lockDetails.mac
-        case 1:
             headingLabel.text = "Name : "
             subHeadingLabel.text = lockDetails.name
+        case 1:
+            headingLabel.text = "Mac : "
+            subHeadingLabel.text = lockDetails.mac
+            
         case 2:
             headingLabel.text = "Description : "
             subHeadingLabel.text = lockDetails.desctn

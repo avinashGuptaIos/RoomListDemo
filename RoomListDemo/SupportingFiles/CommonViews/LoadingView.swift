@@ -47,7 +47,7 @@ extension LoadingView {
             let logo  = UIImageView.init(frame: CGRect.init(x: SCREEN_WIDTH/2-25, y: SCREEN_HEIGHT/2-25, width: 50, height: 50))
             logo.layer.masksToBounds = true
             logo.layer.cornerRadius = 8
-            logo.image = UIImage.init(named: "home_favourite")//icon.png
+            logo.image = UIImage.init(named: "room")
             blurEffectView.contentView.addSubview(logo)
             
             self.animater = UIDynamicAnimator(referenceView: blurEffectView)
@@ -82,7 +82,7 @@ extension LoadingView {
             rotationAnimation.isCumulative = true
             rotationAnimation.repeatCount = Float(INT_MAX)
             logo.layer.add(rotationAnimation, forKey: "rotationAnimation")
-            APP_KEY_WINDOW??.addSubview(blurEffectView)
+            APP_KEY_WINDOW?.addSubview(blurEffectView)
   
         }
     }
@@ -100,14 +100,14 @@ extension LoadingView {
         DispatchQueue.main.async {
             self.animating = false
 
-            _ = APP_KEY_WINDOW??.subviews.map {
+            _ = APP_KEY_WINDOW?.subviews.map {
                 if let blurEffectView = $0 as? UIVisualEffectView{
                     _ = blurEffectView.subviews.map({ $0.removeFromSuperview() })
                     $0.removeFromSuperview()
                 }
             }
 
-            for view in (APP_KEY_WINDOW??.subviews)! {
+            for view in (APP_KEY_WINDOW?.subviews)! {
                 if view.tag == LOADING_IMAGE_TAG {
                     view.removeFromSuperview()
                 } else if view.tag == LOADING_VIEW_TAG {

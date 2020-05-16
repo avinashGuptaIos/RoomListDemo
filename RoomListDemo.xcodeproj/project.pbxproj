@@ -27,8 +27,6 @@
 		04B86281246F56B200C37684 /* AllExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86280246F56B200C37684 /* AllExtensions.swift */; };
 		04B86283246F579F00C37684 /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86282246F579F00C37684 /* Bounds.swift */; };
 		04B86285246F5E4D00C37684 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86284246F5E4D00C37684 /* Model.swift */; };
-		04B86288246F5ED200C37684 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86287246F5ED200C37684 /* SwiftyJSON.swift */; };
-		04B86289246F5ED200C37684 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86287246F5ED200C37684 /* SwiftyJSON.swift */; };
 		04B8628B246F62D500C37684 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8628A246F62D500C37684 /* Box.swift */; };
 		04B8628D246F64B700C37684 /* RoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8628C246F64B700C37684 /* RoomListViewModel.swift */; };
 		04B8628E246F64B700C37684 /* RoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8628C246F64B700C37684 /* RoomListViewModel.swift */; };
@@ -40,6 +38,7 @@
 		04B8629F246FFE9400C37684 /* LockDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B8629D246FFE9400C37684 /* LockDetailsTableViewCell.xib */; };
 		04B862A12470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
 		04B862A22470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
+		04B862A8247097DE00C37684 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A7247097DE00C37684 /* NavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +76,6 @@
 		04B86280246F56B200C37684 /* AllExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllExtensions.swift; sourceTree = "<group>"; };
 		04B86282246F579F00C37684 /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
 		04B86284246F5E4D00C37684 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		04B86287246F5ED200C37684 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		04B8628A246F62D500C37684 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		04B8628C246F64B700C37684 /* RoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewModel.swift; sourceTree = "<group>"; };
 		04B8628F246F7D2700C37684 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +85,7 @@
 		04B8629C246FFE9400C37684 /* LockDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		04B8629D246FFE9400C37684 /* LockDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		04B862A02470031C00C37684 /* LockDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsViewModel.swift; sourceTree = "<group>"; };
+		04B862A7247097DE00C37684 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +156,6 @@
 		04B86263246F52EC00C37684 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				04B86286246F5EC000C37684 /* Resources */,
 				04B8626C246F539300C37684 /* CommonViews */,
 				04B8626B246F539000C37684 /* Constants */,
 				04B8627D246F561A00C37684 /* Helpers */,
@@ -168,6 +166,7 @@
 		04B86264246F52EF00C37684 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04B862A7247097DE00C37684 /* NavigationController.swift */,
 				04B8628F246F7D2700C37684 /* RoomListViewController.swift */,
 				04B86299246FFD9700C37684 /* LockDetailsViewController.swift */,
 			);
@@ -238,14 +237,6 @@
 				04B8628A246F62D500C37684 /* Box.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		04B86286246F5EC000C37684 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				04B86287246F5ED200C37684 /* SwiftyJSON.swift */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		04B8629B246FFE2100C37684 /* TableViewCells */ = {
@@ -363,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B86278246F553500C37684 /* Colors.swift in Sources */,
+				04B862A8247097DE00C37684 /* NavigationController.swift in Sources */,
 				04B86283246F579F00C37684 /* Bounds.swift in Sources */,
 				04B8629A246FFD9700C37684 /* LockDetailsViewController.swift in Sources */,
 				04B8628D246F64B700C37684 /* RoomListViewModel.swift in Sources */,
@@ -383,7 +375,6 @@
 				04B86249246F521F00C37684 /* RoomListDemo.xcdatamodeld in Sources */,
 				04B8626A246F534100C37684 /* ServiceManager.swift in Sources */,
 				04B86274246F54EC00C37684 /* Fonts.swift in Sources */,
-				04B86288246F5ED200C37684 /* SwiftyJSON.swift in Sources */,
 				04B86276246F550F00C37684 /* Globals.swift in Sources */,
 				04B8626E246F53B900C37684 /* Constants.swift in Sources */,
 			);
@@ -396,7 +387,6 @@
 				04B862A22470031C00C37684 /* LockDetailsViewModel.swift in Sources */,
 				04B86259246F522900C37684 /* RoomListDemoTests.swift in Sources */,
 				04B8628E246F64B700C37684 /* RoomListViewModel.swift in Sources */,
-				04B86289246F5ED200C37684 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

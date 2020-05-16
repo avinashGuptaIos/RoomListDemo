@@ -24,7 +24,7 @@ func SHOW_LOADER()
 func SHOW_TOAST(_ msg: String?) {
     if let message = msg {
         DispatchQueue.main.async {
-            APP_KEY_WINDOW??.makeToast(message)
+            APP_KEY_WINDOW?.makeToast(message)
         }
     }
 }

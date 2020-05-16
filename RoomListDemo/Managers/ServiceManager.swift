@@ -21,7 +21,7 @@ open class ServiceManager: NSObject {
     
     var isInternetAvailable: Bool {
         if currentReachabilityStatus == .notReachable {
-            APP_KEY_WINDOW??.makeToast(NO_INTERNET_CONNECTION)
+            SHOW_TOAST(NO_INTERNET_CONNECTION)
             return false;
         } else {
             return true
@@ -86,6 +86,7 @@ open class ServiceManager: NSObject {
                                     else if responseCode != SUCCESS_CODE && String(describing: jsonResponse["error"]).count > 0
                                     {
                                         STOP_LOADING_VIEW()
+                                        SHOW_TOAST(jsonResponse["error"] as? String)
                                         if failure != nil {
                                             failure! (json, code!)
                                         }
@@ -111,6 +112,7 @@ open class ServiceManager: NSObject {
                             
                         }
                     } else {
+                        STOP_LOADING_VIEW()
                         if failure != nil {
                             failure! (json, code!)
                         }

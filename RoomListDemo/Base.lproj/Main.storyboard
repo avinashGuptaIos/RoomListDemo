@@ -41,7 +41,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VGN-kW-2hE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="78j-SE-xj9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="78j-SE-xj9" customClass="NavigationController" customModule="RoomListDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lES-bZ-fac">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
