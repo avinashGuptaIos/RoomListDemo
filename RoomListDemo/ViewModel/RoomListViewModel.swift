@@ -7,20 +7,23 @@
 //
 
 import Foundation
+import CoreData
 
-typealias DataExists = (_ dataIsThere: Bool) -> Void
 
 class RoomListViewModel {
+    
+    var rooms: Box<[CDRoomData]> = Box([])
+    
     func getRoomList() {
         loadSavedRoomList { [weak self] (roomListx) in
             if let roomList = roomListx , roomList.count > 0 {
-//                self?.repos = reposList
+                self?.rooms.value = roomList
             }else
             {
                 self?.fetchRoomListFromServer { [weak self] (dataExists) in
                     if dataExists
                     {
-//                        self?.getRoomList()
+                        self?.getRoomList()
                     }
                 }
             }
@@ -35,7 +38,7 @@ private extension RoomListViewModel {
         
         ServiceManagerSharedInstance.methodType(requestType: GET_REQUEST, url: GET_ROOM_LIST(), params: nil, paramsData: nil, completion: { [weak self] (_ response,_ responseData, _ statusCode) in
             if let roomListData = responseData, statusCode == 200{
-                let roomList = try? JSONDecoder().decode(RoomList.self, from: roomListData)
+                let roomList = try? Shared_CustomJsonDecoder.decode(RoomList.self, from: roomListData)
                 self?.saveRoomListToDb(roomList: roomList?.data ?? [], callback: callback)
             }
         }) {  (_ failure, _ statusCode) in
@@ -43,43 +46,39 @@ private extension RoomListViewModel {
             callback(false)
         }
     }
-       
+    
     func saveRoomListToDb(roomList: [RoomData], callback: @escaping DataExists) {
         DispatchQueue.main.async { [unowned self] in
             if roomList.count > 0{
-                self.deleteAllObjects(entityName: "CDRepo")
+                self.deleteAllObjects(entityName: "CDRoomData")
             }
-            print("Rooms data are ",roomList)
             for room in roomList{
-                _ = try? JSONEncoder().encode(room)
-                
-//                let cdRepo = CDRepo(context: self.viewContext)
-//                cdRepo.nodeId = repo.nodeId
-//                cdRepo.name = repo.name
-//                cdRepo.fullName = repo.full_name
-//                cdRepo.detailDescription = repo.detailDescription
+                let data = try? Shared_CustomJsonEncoder.encode(room)
+                let cdRoomData = CDRoomData(context: AppDelegate_ViewContext)
+                cdRoomData.room = data
             }
-//            AppDelegate.shared.saveContext()
-//            callback(repos.count > 0)
-            callback(true)
+            AppDelegate.shared.saveContext()
+            callback(roomList.count > 0)
         }
     }
-       
-       func loadSavedRoomList(callback:@escaping (_ roomList: [RoomData]?) -> Void){
-//           let fetchRequest =  NSFetchRequest<CDRepo>(entityName: "CDRepo")
-//           let repos = try? viewContext.fetch(fetchRequest)
-//           callback(repos)
-        callback(nil)
-       }
     
+    func loadSavedRoomList(callback:@escaping (_ roomList: [CDRoomData]?) -> Void){
+        let fetchRequest =  NSFetchRequest<CDRoomData>(entityName: "CDRoomData")
+        let rooms = try? AppDelegate_ViewContext.fetch(fetchRequest)
+        callback(rooms)
+    }
+    
+}
+
+extension RoomListViewModel{
     func deleteAllObjects(entityName: String) {
-//          let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-//          let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-//          do {
-//              try viewContext.execute(batchDeleteRequest)
-//          } catch let error {
-//              print("Error happened while deleting the records \(error.localizedDescription)")
-//          }
-          
-      }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try AppDelegate_ViewContext.execute(batchDeleteRequest)
+        } catch let error {
+            print("Error happened while deleting the records \(error.localizedDescription)")
+        }
+        
+    }
 }

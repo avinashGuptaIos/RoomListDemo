@@ -9,7 +9,7 @@
 import Foundation
 
 class CustomDate {
-    var date: Date?
+   private var date: Date?
     private init() { date = Date() }
     static let shared = CustomDate()
     
@@ -18,7 +18,30 @@ class CustomDate {
     }
 }
 
+let Shared_CustomJsonEncoder = CustomJsonEncoder.shared.getSharedEncoder()
+class CustomJsonEncoder {
+   private var jsonEncoder: JSONEncoder
+    private init(){ jsonEncoder = JSONEncoder() }
+    static let shared = CustomJsonEncoder()
+    
+    func getSharedEncoder() -> JSONEncoder {
+        return jsonEncoder
+    }
+}
+
+let Shared_CustomJsonDecoder = CustomJsonDecoder.shared.getSharedDecoder()
+class CustomJsonDecoder {
+   private var jsonDecoder: JSONDecoder
+    private init(){ jsonDecoder = JSONDecoder() }
+    static let shared = CustomJsonDecoder()
+    
+    func getSharedDecoder() -> JSONDecoder {
+        return jsonDecoder
+    }
+}
+
 //MARK:- App APIS
+let AppDelegate_ViewContext = AppDelegate.shared.persistentContainer.viewContext
 
 let BASE_URL = "https://api.snglty.com/"
 

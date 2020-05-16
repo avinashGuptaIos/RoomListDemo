@@ -34,10 +34,9 @@ struct Room: Codable {
     var name: String?
 }
 
-struct LockDetails: Decodable {
+struct LockDetails: Codable {
     var MAC: String?
     var name: String?
     var description: String?
-    var success: Bool
 }
 

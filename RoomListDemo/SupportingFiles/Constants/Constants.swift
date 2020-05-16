@@ -13,6 +13,7 @@ enum MyError: Error {
     case FoundNil(String)
 }
 
+typealias DataExists = (_ dataIsThere: Bool) -> Void
 
 //MARK: Others
 //let KEY_WINDOW = UIApplication.shared.keyWindow //Sometimes it will not allow u to add any view on KeyWindow, where as APP_KEY_WINDOW will always allow u to do the same .

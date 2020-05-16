@@ -33,6 +33,13 @@
 		04B8628D246F64B700C37684 /* RoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8628C246F64B700C37684 /* RoomListViewModel.swift */; };
 		04B8628E246F64B700C37684 /* RoomListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8628C246F64B700C37684 /* RoomListViewModel.swift */; };
 		04B86290246F7D2700C37684 /* RoomListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8628F246F7D2700C37684 /* RoomListViewController.swift */; };
+		04B86297246FE71B00C37684 /* RoomDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86295246FE71B00C37684 /* RoomDataTableViewCell.swift */; };
+		04B86298246FE71B00C37684 /* RoomDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B86296246FE71B00C37684 /* RoomDataTableViewCell.xib */; };
+		04B8629A246FFD9700C37684 /* LockDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B86299246FFD9700C37684 /* LockDetailsViewController.swift */; };
+		04B8629E246FFE9400C37684 /* LockDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B8629C246FFE9400C37684 /* LockDetailsTableViewCell.swift */; };
+		04B8629F246FFE9400C37684 /* LockDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04B8629D246FFE9400C37684 /* LockDetailsTableViewCell.xib */; };
+		04B862A12470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
+		04B862A22470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +81,12 @@
 		04B8628A246F62D500C37684 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		04B8628C246F64B700C37684 /* RoomListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewModel.swift; sourceTree = "<group>"; };
 		04B8628F246F7D2700C37684 /* RoomListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomListViewController.swift; sourceTree = "<group>"; };
+		04B86295246FE71B00C37684 /* RoomDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomDataTableViewCell.swift; sourceTree = "<group>"; };
+		04B86296246FE71B00C37684 /* RoomDataTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoomDataTableViewCell.xib; sourceTree = "<group>"; };
+		04B86299246FFD9700C37684 /* LockDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsViewController.swift; sourceTree = "<group>"; };
+		04B8629C246FFE9400C37684 /* LockDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		04B8629D246FFE9400C37684 /* LockDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		04B862A02470031C00C37684 /* LockDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				04B8628F246F7D2700C37684 /* RoomListViewController.swift */,
+				04B86299246FFD9700C37684 /* LockDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -164,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				04B8628C246F64B700C37684 /* RoomListViewModel.swift */,
+				04B862A02470031C00C37684 /* LockDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -171,6 +186,7 @@
 		04B86266246F52F400C37684 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04B8629B246FFE2100C37684 /* TableViewCells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +246,17 @@
 				04B86287246F5ED200C37684 /* SwiftyJSON.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		04B8629B246FFE2100C37684 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				04B86295246FE71B00C37684 /* RoomDataTableViewCell.swift */,
+				04B86296246FE71B00C37684 /* RoomDataTableViewCell.xib */,
+				04B8629C246FFE9400C37684 /* LockDetailsTableViewCell.swift */,
+				04B8629D246FFE9400C37684 /* LockDetailsTableViewCell.xib */,
+			);
+			path = TableViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -313,6 +340,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B86298246FE71B00C37684 /* RoomDataTableViewCell.xib in Resources */,
+				04B8629F246FFE9400C37684 /* LockDetailsTableViewCell.xib in Resources */,
 				04B8624E246F522900C37684 /* LaunchScreen.storyboard in Resources */,
 				04B8624B246F522900C37684 /* Assets.xcassets in Resources */,
 				04B86246246F521F00C37684 /* Main.storyboard in Resources */,
@@ -335,18 +364,22 @@
 			files = (
 				04B86278246F553500C37684 /* Colors.swift in Sources */,
 				04B86283246F579F00C37684 /* Bounds.swift in Sources */,
+				04B8629A246FFD9700C37684 /* LockDetailsViewController.swift in Sources */,
 				04B8628D246F64B700C37684 /* RoomListViewModel.swift in Sources */,
 				04B86272246F54B900C37684 /* ToastMessages.swift in Sources */,
 				04B86281246F56B200C37684 /* AllExtensions.swift in Sources */,
 				04B8627F246F562F00C37684 /* Utils.swift in Sources */,
 				04B8623F246F521F00C37684 /* AppDelegate.swift in Sources */,
+				04B862A12470031C00C37684 /* LockDetailsViewModel.swift in Sources */,
 				04B86290246F7D2700C37684 /* RoomListViewController.swift in Sources */,
 				04B86241246F521F00C37684 /* SceneDelegate.swift in Sources */,
 				04B86285246F5E4D00C37684 /* Model.swift in Sources */,
 				04B8627A246F556300C37684 /* LoadingView.swift in Sources */,
 				04B8628B246F62D500C37684 /* Box.swift in Sources */,
 				04B86270246F548500C37684 /* Apis.swift in Sources */,
+				04B86297246FE71B00C37684 /* RoomDataTableViewCell.swift in Sources */,
 				04B8627C246F558F00C37684 /* ToastView.swift in Sources */,
+				04B8629E246FFE9400C37684 /* LockDetailsTableViewCell.swift in Sources */,
 				04B86249246F521F00C37684 /* RoomListDemo.xcdatamodeld in Sources */,
 				04B8626A246F534100C37684 /* ServiceManager.swift in Sources */,
 				04B86274246F54EC00C37684 /* Fonts.swift in Sources */,
@@ -360,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04B862A22470031C00C37684 /* LockDetailsViewModel.swift in Sources */,
 				04B86259246F522900C37684 /* RoomListDemoTests.swift in Sources */,
 				04B8628E246F64B700C37684 /* RoomListViewModel.swift in Sources */,
 				04B86289246F5ED200C37684 /* SwiftyJSON.swift in Sources */,
