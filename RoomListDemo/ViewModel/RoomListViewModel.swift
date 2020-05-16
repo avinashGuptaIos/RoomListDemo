@@ -16,22 +16,52 @@ class RoomListViewModel {
     
     func getRoomList() {
         START_LOADING_VIEW()
-        loadSavedRoomList { [weak self] (roomListx) in
-            if let roomList = roomListx , roomList.count > 0 {
+        if Utils.isInternetAvailable() {
+            fetchRoomListFromServer { [weak self] (dataExists) in
                 STOP_LOADING_VIEW()
-                self?.rooms.value = roomList
-            }else
-            {
-                self?.fetchRoomListFromServer { [weak self] (dataExists) in
-                    if dataExists
-                    {
-                        STOP_LOADING_VIEW()
-                        self?.getRoomList()
+                if dataExists
+                {
+                    self?.loadSavedRoomList { [weak self] (roomListx) in
+                        if let roomList = roomListx , roomList.count > 0 {
+                            self?.rooms.value = roomList
+                        }
                     }
                 }
             }
         }
+        else
+        {
+        loadSavedRoomList { [weak self] (roomListx) in
+            if let roomList = roomListx , roomList.count > 0 {
+                STOP_LOADING_VIEW()
+                self?.rooms.value = roomList
+            }
+        }
+        }
     }
+    
+
+    
+// DB Priority Flow
+    
+//    func getRoomList() {
+//        START_LOADING_VIEW()
+//        loadSavedRoomList { [weak self] (roomListx) in
+//            if let roomList = roomListx , roomList.count > 0 {
+//                STOP_LOADING_VIEW()
+//                self?.rooms.value = roomList
+//            }else
+//            {
+//                self?.fetchRoomListFromServer { [weak self] (dataExists) in
+//                    if dataExists
+//                    {
+//                        STOP_LOADING_VIEW()
+//                        self?.getRoomList()
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 

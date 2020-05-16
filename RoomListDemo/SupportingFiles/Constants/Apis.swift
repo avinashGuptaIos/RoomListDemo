@@ -47,11 +47,11 @@ let AppDelegate_ViewContext = AppDelegate.shared.persistentContainer.viewContext
 let BASE_URL = "https://api.snglty.com/"
 
 func GET_ROOM_LIST() -> String {
-    "v1/test/roomsList?timestamp=\(getCurrentTimeStamp())" //Need to implement the Timestamp
+    "v1/test/roomsList?timestamp=\(getCurrentTimeStamp())"
 }
 
 func GET_LOCK_DETAILS(roomId: String) -> String {
-    "v1/test/lockDetails?roomId=\(roomId)&timestamp=\(getCurrentTimeStamp())" //Need to implement the Timestamp
+    "v1/test/lockDetails?roomId=\(roomId)&timestamp=\(getCurrentTimeStamp())" 
 }
 
 func getCurrentTimeStamp() -> String{

@@ -19,7 +19,7 @@ class RoomListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.title = "Page1"
-//        roomListViewModel.deleteAllObjects(entityName: "CDRoomData")
+//        roomListViewModel.deleteAllObjects(entityName: "CDRoomData") //Not required for Server to DB flow
         setupTableView()
         roomListViewModel.getRoomList()
         

@@ -23,7 +23,7 @@ class LockDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Page2"
-//        lockDetailsViewModel.deleteOlderLockDetails(roomId: roomId)
+//        lockDetailsViewModel.deleteOlderLockDetails(roomId: roomId) //Not required for Server to DB flow
         setupTableView()
         lockDetailsViewModel.getLockDetails(roomId: roomId)
         

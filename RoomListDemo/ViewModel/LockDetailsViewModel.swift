@@ -11,25 +11,53 @@ import CoreData
 
 class LockDetailsViewModel {
     var lockDetails: Box<CDLockDetails?> = Box(nil)
-    
+  
     func getLockDetails(roomId: Int) {
         START_LOADING_VIEW()
-        loadSavedLockDetails(roomId: roomId) { [weak self] (cdLockDetails) in
-            if let cdLockDetailsx = cdLockDetails {
-                STOP_LOADING_VIEW()
-                self?.lockDetails.value = cdLockDetailsx
-            }else
-            {
-                self?.fetchLockDetailsFromServer(roomId: roomId) { [weak self] (dataExists) in
-                    if dataExists
-                    {
-                        STOP_LOADING_VIEW()
-                        self?.getLockDetails(roomId: roomId)
+        if Utils.isInternetAvailable() {
+            fetchLockDetailsFromServer(roomId: roomId) { [weak self] (dataExists) in
+                if dataExists
+                {
+                    STOP_LOADING_VIEW()
+                    self?.loadSavedLockDetails(roomId: roomId) { [weak self] (cdLockDetails) in
+                        if let cdLockDetailsx = cdLockDetails {
+                            self?.lockDetails.value = cdLockDetailsx
+                        }
                     }
                 }
             }
         }
+        else
+        {
+        loadSavedLockDetails(roomId: roomId) { [weak self] (cdLockDetails) in
+            if let cdLockDetailsx = cdLockDetails {
+                STOP_LOADING_VIEW()
+                self?.lockDetails.value = cdLockDetailsx
+            }
+        }
+        }
     }
+    
+    // DB Priority Flow
+    
+//    func getLockDetails(roomId: Int) {
+//        START_LOADING_VIEW()
+//        loadSavedLockDetails(roomId: roomId) { [weak self] (cdLockDetails) in
+//            if let cdLockDetailsx = cdLockDetails {
+//                STOP_LOADING_VIEW()
+//                self?.lockDetails.value = cdLockDetailsx
+//            }else
+//            {
+//                self?.fetchLockDetailsFromServer(roomId: roomId) { [weak self] (dataExists) in
+//                    if dataExists
+//                    {
+//                        STOP_LOADING_VIEW()
+//                        self?.getLockDetails(roomId: roomId)
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 
