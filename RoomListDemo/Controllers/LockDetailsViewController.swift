@@ -23,7 +23,7 @@ class LockDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Page2"
-//        lockDetailsViewModel.deleteOlderLockDetails(roomId: roomId) //Not required for Server to DB flow
+        //        lockDetailsViewModel.deleteOlderLockDetails(roomId: roomId) //Not required for Server to DB flow
         setupTableView()
         lockDetailsViewModel.getLockDetails(roomId: roomId)
         
@@ -31,6 +31,18 @@ class LockDetailsViewController: UIViewController {
             self?.lockDetails = lockDetails
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserverForInternetConnectivity()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObserverForInternetConnectivity()
+    }
+    
     
     fileprivate func setupTableView() {
         tableViewx.register(UINib(nibName: LockDetailsTableViewCell.reuseIdentifier(), bundle: nil), forCellReuseIdentifier: LockDetailsTableViewCell.reuseIdentifier())
@@ -42,6 +54,11 @@ class LockDetailsViewController: UIViewController {
         tableViewx.tableFooterView = UIView()
     }
     
+    // MARK: - InternetConnection_Observer
+    override func gotInternetConnectivity() {
+        super.gotInternetConnectivity()
+        lockDetailsViewModel.getLockDetails(roomId: roomId)
+    }
 }
 
 //MARK: UITableViewDataSource, UITableViewDelegate

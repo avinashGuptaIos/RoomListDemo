@@ -13,11 +13,10 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let shared = UIApplication.shared.delegate as! AppDelegate
-    var reach: Reachability?
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setUpInternetConnectionSettings()
         return true
     }
 
@@ -37,31 +36,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     //MARK: SET_UP_FOR_Internet_Connection
         
-        func setUpInternetConnectionSettings() {
-              self.reach = Reachability.forInternetConnection()
-            
-            // Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA
-            self.reach!.reachableOnWWAN = false
-            
-            NotificationCenter.default.addObserver(
-                self,
-                selector: #selector(reachabilityChanged),
-                name: NSNotification.Name.reachabilityChanged,
-                object: nil
-            )
-            self.reach!.startNotifier()
-            }
+    func setUpInternetConnectionSettings() {
         
-        @objc func reachabilityChanged(notification: NSNotification) {
-            if self.reach!.isReachableViaWiFi() || self.reach!.isReachableViaWWAN() {
-    //            print("Service avalaible!!!")
-                NotificationCenter.default.post(name: NSNotification.Name.INTERNET_CONNECTION, object: nil)
-
-            } else {
-    //            print("No service avalaible!!!")
-               SHOW_TOAST("No internet connection")
-            }
+        let reachability = try! Reachability()
+        reachability.whenReachable = { reachability in
+            NotificationCenter.default.post(name: NSNotification.Name.INTERNET_CONNECTION, object: nil)
         }
+        reachability.whenUnreachable = { _ in
+            SHOW_TOAST("No internet connection")
+        }
+        
+        do {
+            try reachability.startNotifier()
+        } catch {
+            print("Unable to start notifier")
+        }
+    }
 
     // MARK: - Core Data stack
 

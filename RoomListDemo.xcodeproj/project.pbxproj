@@ -40,6 +40,7 @@
 		04B862A22470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
 		04B862A8247097DE00C37684 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A7247097DE00C37684 /* NavigationController.swift */; };
 		04B862AA2470DA4300C37684 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B862A92470DA4300C37684 /* icon.png */; };
+		04B862AC2470E04400C37684 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862AB2470E04400C37684 /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		04B862A02470031C00C37684 /* LockDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsViewModel.swift; sourceTree = "<group>"; };
 		04B862A7247097DE00C37684 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		04B862A92470DA4300C37684 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		04B862AB2470E04400C37684 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 		04B8627D246F561A00C37684 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				04B862AB2470E04400C37684 /* Reachability.swift */,
 				04B8627E246F562F00C37684 /* Utils.swift */,
 				04B86280246F56B200C37684 /* AllExtensions.swift */,
 				04B8628A246F62D500C37684 /* Box.swift */,
@@ -380,6 +383,7 @@
 				04B8626A246F534100C37684 /* ServiceManager.swift in Sources */,
 				04B86274246F54EC00C37684 /* Fonts.swift in Sources */,
 				04B86276246F550F00C37684 /* Globals.swift in Sources */,
+				04B862AC2470E04400C37684 /* Reachability.swift in Sources */,
 				04B8626E246F53B900C37684 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

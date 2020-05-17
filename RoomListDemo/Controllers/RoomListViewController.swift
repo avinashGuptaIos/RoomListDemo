@@ -40,6 +40,18 @@ class RoomListViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addObserverForInternetConnectivity()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        removeObserverForInternetConnectivity()
+    }
+    
+    
     fileprivate func setupTableView() {
         tableViewx.register(UINib(nibName: RoomDataTableViewCell.reuseIdentifier(), bundle: nil), forCellReuseIdentifier: RoomDataTableViewCell.reuseIdentifier())
         tableViewx.dataSource = self
@@ -55,7 +67,12 @@ class RoomListViewController: UIViewController {
     @objc func handleRefresh() {
         roomListViewModel.getRoomList()
     }
-
+    
+    // MARK: - InternetConnection_Observer
+    override func gotInternetConnectivity() {
+        super.gotInternetConnectivity()
+        roomListViewModel.getRoomList()
+    }
 }
 
 //MARK: UITableViewDataSource, UITableViewDelegate
