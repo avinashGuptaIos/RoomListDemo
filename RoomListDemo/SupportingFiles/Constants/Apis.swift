@@ -11,8 +11,7 @@ import Foundation
 //MARK: Singletons
 class CustomDate {
    private var date: Date?
-    private init() { date = Date() }
-    static let shared = CustomDate()
+    init() { date = Date() }
     
     func currentTimeStamp() -> String {
         return "\(Int(date?.timeIntervalSince1970 ?? 0.0))"
@@ -55,7 +54,7 @@ func GET_LOCK_DETAILS(roomId: String) -> String {
 }
 
 func getCurrentTimeStamp() -> String{
-    return CustomDate.shared.currentTimeStamp()
+    return CustomDate().currentTimeStamp()
 }
 
 func START_LOADING_VIEW()  {

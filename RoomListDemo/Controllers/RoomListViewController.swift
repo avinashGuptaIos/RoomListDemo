@@ -14,6 +14,15 @@ class RoomListViewController: UIViewController {
     private var roomDataArray = [RoomData]()
     @IBOutlet weak var tableViewx: UITableView!
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(RoomListViewController.handleRefresh),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.gray
+        refreshControl.attributedTitle = NSAttributedString(string: "Fetching room list ...")
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +36,7 @@ class RoomListViewController: UIViewController {
             self?.roomDataArray.removeAll()
             self?.roomDataArray = rooms.map{ try! Shared_CustomJsonDecoder.decode(RoomData.self, from: $0.room ?? Data()) }
             self?.tableViewx.reloadData()
+            self?.refreshControl.endRefreshing()
         }
     }
     
@@ -37,10 +47,18 @@ class RoomListViewController: UIViewController {
         tableViewx.rowHeight = UITableView.automaticDimension
         tableViewx.estimatedRowHeight = 50
         tableViewx.tableFooterView = UIView()
+        tableViewx.addSubview(refreshControl)
     }
     
+    //MARK: Pull to Refresh Action
+    
+    @objc func handleRefresh() {
+        roomListViewModel.getRoomList()
+    }
 
 }
+
+//MARK: UITableViewDataSource, UITableViewDelegate
 
 extension RoomListViewController: UITableViewDataSource, UITableViewDelegate{
     

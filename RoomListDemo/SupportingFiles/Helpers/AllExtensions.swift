@@ -108,6 +108,7 @@ extension Dictionary where Key: Hashable, Value: Any
     }
 }
 
+//MARK:- UIWindow Extension
 
 extension UIWindow {
     static var key: UIWindow? {
@@ -118,3 +119,22 @@ extension UIWindow {
         }
     }
 }
+
+
+
+//MARK:- UIView Extension
+
+extension UIView {
+    
+    func addConstraints(_ format: String, constraintViews: [UIView]) {
+        var viewsDictionary = [String: Any]()
+        for view: UIView in constraintViews {
+            let key = "v\((constraintViews as NSArray).index(of: view))"
+            view.translatesAutoresizingMaskIntoConstraints = false
+            viewsDictionary[key] = view
+        }
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: [], metrics: nil, views: viewsDictionary))
+    }
+    
+}
+

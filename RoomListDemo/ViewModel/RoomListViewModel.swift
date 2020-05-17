@@ -109,6 +109,7 @@ extension RoomListViewModel{
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try AppDelegate_ViewContext.execute(batchDeleteRequest)
+            AppDelegate.shared.saveContext()
         } catch let error {
             print("Error happened while deleting the records \(error.localizedDescription)")
         }

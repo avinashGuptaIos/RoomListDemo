@@ -44,6 +44,7 @@ class LockDetailsViewController: UIViewController {
     
 }
 
+//MARK: UITableViewDataSource, UITableViewDelegate
 
 extension LockDetailsViewController: UITableViewDataSource, UITableViewDelegate{
     

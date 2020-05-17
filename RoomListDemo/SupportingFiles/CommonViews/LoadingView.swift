@@ -50,6 +50,15 @@ extension LoadingView {
             logo.image = UIImage.init(named: "room")
             blurEffectView.contentView.addSubview(logo)
             
+            //------------AddConstraints-----------//
+            logo.translatesAutoresizingMaskIntoConstraints = false
+            let xConstraint = NSLayoutConstraint(item: logo, attribute: .centerX, relatedBy: .equal, toItem: blurEffectView.contentView, attribute: .centerX, multiplier: 1, constant: 0)
+
+            let yConstraint = NSLayoutConstraint(item: logo, attribute: .centerY, relatedBy: .equal, toItem: blurEffectView.contentView, attribute: .centerY, multiplier: 1, constant: 0)
+
+            NSLayoutConstraint.activate([xConstraint, yConstraint])
+            //------------------------------------//
+            
             self.animater = UIDynamicAnimator(referenceView: blurEffectView)
             let gravityBehavior = UIGravityBehavior(items: [logo])
             
@@ -84,6 +93,10 @@ extension LoadingView {
             logo.layer.add(rotationAnimation, forKey: "rotationAnimation")
             APP_KEY_WINDOW?.addSubview(blurEffectView)
   
+            //------------AddConstraints-----------//
+            APP_KEY_WINDOW?.addConstraints("H:|[v0]|", constraintViews: [blurEffectView])
+            APP_KEY_WINDOW?.addConstraints("V:|[v0]|", constraintViews: [blurEffectView])
+            //------------------------------------//
         }
     }
     
