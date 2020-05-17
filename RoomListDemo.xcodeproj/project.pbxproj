@@ -41,6 +41,7 @@
 		04B862A8247097DE00C37684 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A7247097DE00C37684 /* NavigationController.swift */; };
 		04B862AA2470DA4300C37684 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B862A92470DA4300C37684 /* icon.png */; };
 		04B862AC2470E04400C37684 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862AB2470E04400C37684 /* Reachability.swift */; };
+		04B862AE247120E100C37684 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862AD247120E100C37684 /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		04B862A7247097DE00C37684 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		04B862A92470DA4300C37684 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		04B862AB2470E04400C37684 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		04B862AD247120E100C37684 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				04B86269246F534100C37684 /* ServiceManager.swift */,
+				04B862AD247120E100C37684 /* DataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 				04B8623F246F521F00C37684 /* AppDelegate.swift in Sources */,
 				04B862A12470031C00C37684 /* LockDetailsViewModel.swift in Sources */,
 				04B86290246F7D2700C37684 /* RoomListViewController.swift in Sources */,
+				04B862AE247120E100C37684 /* DataManager.swift in Sources */,
 				04B86241246F521F00C37684 /* SceneDelegate.swift in Sources */,
 				04B86285246F5E4D00C37684 /* Model.swift in Sources */,
 				04B8627A246F556300C37684 /* LoadingView.swift in Sources */,

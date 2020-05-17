@@ -16,13 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZS-p6-7NB">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="261" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZS-p6-7NB">
                         <rect key="frame" x="8" y="12" width="89.5" height="19"/>
                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtK-61-Lw5">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="246" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KtK-61-Lw5">
                         <rect key="frame" x="107.5" y="12" width="204.5" height="20"/>
                         <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="17"/>
                         <nil key="textColor"/>
@@ -34,7 +34,7 @@
                     <constraint firstItem="fZS-p6-7NB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="GZh-0o-fmz"/>
                     <constraint firstItem="KtK-61-Lw5" firstAttribute="top" secondItem="fZS-p6-7NB" secondAttribute="top" id="Zen-Jr-bna"/>
                     <constraint firstItem="KtK-61-Lw5" firstAttribute="leading" secondItem="fZS-p6-7NB" secondAttribute="trailing" constant="10" id="dSx-xI-JeF"/>
-                    <constraint firstItem="fZS-p6-7NB" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.28" id="hEL-al-WzB"/>
+                    <constraint firstItem="fZS-p6-7NB" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.28" priority="500" id="hEL-al-WzB"/>
                     <constraint firstItem="fZS-p6-7NB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="k8j-zi-ZZ6"/>
                     <constraint firstAttribute="trailing" secondItem="KtK-61-Lw5" secondAttribute="trailing" constant="8" id="wrc-j5-5Mj"/>
                 </constraints>

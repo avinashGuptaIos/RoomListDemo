@@ -28,7 +28,9 @@ class LockDetailsViewController: UIViewController {
         lockDetailsViewModel.getLockDetails(roomId: roomId)
         
         lockDetailsViewModel.lockDetails.bind { [weak self] (lockDetails) in
-            self?.lockDetails = lockDetails
+            DispatchQueue.main.async {
+                self?.lockDetails = lockDetails
+            }
         }
     }
     
