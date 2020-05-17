@@ -33,10 +33,12 @@ class RoomListViewController: UIViewController {
         roomListViewModel.getRoomList()
         
         roomListViewModel.rooms.bind { [weak self] (rooms) in
-            self?.roomDataArray.removeAll()
-            self?.roomDataArray = rooms.map{ try! Shared_CustomJsonDecoder.decode(RoomData.self, from: $0.room ?? Data()) }
-            self?.tableViewx.reloadData()
-            self?.refreshControl.endRefreshing()
+            DispatchQueue.main.async {
+                self?.roomDataArray.removeAll()
+                self?.roomDataArray = rooms.map{ try! Shared_CustomJsonDecoder.decode(RoomData.self, from: $0.room ?? Data()) }
+                self?.tableViewx.reloadData()
+                self?.refreshControl.endRefreshing()
+            }
         }
     }
     

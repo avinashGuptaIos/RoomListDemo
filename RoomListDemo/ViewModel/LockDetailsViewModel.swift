@@ -78,49 +78,11 @@ private extension LockDetailsViewModel {
     }
     
     func saveLockDetailsToDb(lockDetails: LockDetails, roomId: Int , callback: @escaping DataExists) {
-        DispatchQueue.main.async { [unowned self] in
-            if let mac = lockDetails.MAC, mac.count > 0
-            {
-                self.deleteOlderLockDetails(roomId: roomId)
-            }
-            let cdLockDetails = CDLockDetails(context: AppDelegate_ViewContext)
-            cdLockDetails.mac = lockDetails.MAC
-            cdLockDetails.name = lockDetails.name
-            cdLockDetails.desctn = lockDetails.description
-            cdLockDetails.roomId = Int16(roomId)
-            
-            AppDelegate.shared.saveContext()
-            callback(true)
-        }
+        DataManagerSharedInstance.saveLockDetailsToDb(lockDetails: lockDetails, roomId: roomId, callback: callback)
     }
     
     func loadSavedLockDetails( roomId: Int, callback:@escaping (_ cdLockDetails: CDLockDetails?) -> Void){
-        let lockDetails = getAllLockDetails(roomId: roomId)
-        callback(lockDetails.first)
+        DataManagerSharedInstance.loadSavedLockDetails(roomId: roomId, callback: callback)
     }
     
-    
-    func getAllLockDetails(roomId: Int) -> [CDLockDetails] {
-        let predicate = NSPredicate(format: "roomId == %i", roomId)
-        let fetchRequest = NSFetchRequest<CDLockDetails>(entityName: "CDLockDetails")
-        fetchRequest.predicate = predicate
-        do {
-           let lockDetails = try AppDelegate_ViewContext.fetch(fetchRequest)
-           return lockDetails
-        } catch let error {
-            print("Something wrong happened while fetching lock details ", error.localizedDescription)
-            return []
-        }
-    }
-}
-
-extension LockDetailsViewModel{
-    
-    func deleteOlderLockDetails(roomId: Int) {
-        let lockDetails = getAllLockDetails(roomId: roomId)
-        for lockDetail in lockDetails {
-            AppDelegate_ViewContext.delete(lockDetail)
-        }
-        AppDelegate.shared.saveContext()
-    }
 }

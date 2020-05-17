@@ -42,7 +42,7 @@ class CustomJsonDecoder {
 }
 
 //MARK:- App APIS
-let AppDelegate_ViewContext = AppDelegate.shared.persistentContainer.viewContext
+let AppDelegate_ViewContext = AppDelegate.shared().persistentContainer.viewContext
 
 let BASE_URL = "https://api.snglty.com/"
 

@@ -31,12 +31,12 @@ class RoomListViewModel {
         }
         else
         {
-        loadSavedRoomList { [weak self] (roomListx) in
-            if let roomList = roomListx , roomList.count > 0 {
-                STOP_LOADING_VIEW()
-                self?.rooms.value = roomList
+            loadSavedRoomList { [weak self] (roomListx) in
+                if let roomList = roomListx , roomList.count > 0 {
+                    STOP_LOADING_VIEW()
+                    self?.rooms.value = roomList
+                }
             }
-        }
         }
     }
     
@@ -81,38 +81,11 @@ private extension RoomListViewModel {
     }
     
     func saveRoomListToDb(roomList: [RoomData], callback: @escaping DataExists) {
-        DispatchQueue.main.async { [unowned self] in
-            if roomList.count > 0{
-                self.deleteAllObjects(entityName: "CDRoomData")
-            }
-            for room in roomList{
-                let data = try? Shared_CustomJsonEncoder.encode(room)
-                let cdRoomData = CDRoomData(context: AppDelegate_ViewContext)
-                cdRoomData.room = data
-            }
-            AppDelegate.shared.saveContext()
-            callback(roomList.count > 0)
-        }
+        DataManagerSharedInstance.saveRoomListToDb(roomList: roomList, callback: callback)
     }
     
     func loadSavedRoomList(callback:@escaping (_ roomList: [CDRoomData]?) -> Void){
-        let fetchRequest =  NSFetchRequest<CDRoomData>(entityName: "CDRoomData")
-        let rooms = try? AppDelegate_ViewContext.fetch(fetchRequest)
-        callback(rooms)
+        DataManagerSharedInstance.loadSavedRoomList(callback: callback)
     }
     
-}
-
-extension RoomListViewModel{
-    func deleteAllObjects(entityName: String) {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        do {
-            try AppDelegate_ViewContext.execute(batchDeleteRequest)
-            AppDelegate.shared.saveContext()
-        } catch let error {
-            print("Error happened while deleting the records \(error.localizedDescription)")
-        }
-        
-    }
 }
