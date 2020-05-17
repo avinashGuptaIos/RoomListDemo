@@ -13,7 +13,7 @@ import SystemConfiguration
 protocol Utilities {
 }
 
-//MARK:- Utilities Extension
+//MARK:- Utilities Extensions
 extension NSObject:Utilities {
     
     enum ReachabilityStatus {
@@ -62,7 +62,7 @@ extension NSObject:Utilities {
 
 
 
-//MARK:-UIColor Extension
+//MARK:-UIColor Extensions
 extension UIColor {
     
    class func hexStringToUIColor (hex:String, withOpacity: CGFloat) -> UIColor {
@@ -108,7 +108,7 @@ extension Dictionary where Key: Hashable, Value: Any
     }
 }
 
-//MARK:- UIWindow Extension
+//MARK:- UIWindow Extensions
 
 extension UIWindow {
     static var key: UIWindow? {
@@ -122,7 +122,7 @@ extension UIWindow {
 
 
 
-//MARK:- UIView Extension
+//MARK:- UIView Extensions
 
 extension UIView {
     
@@ -138,3 +138,20 @@ extension UIView {
     
 }
 
+//MARK: UIViewController Extensions
+
+extension UIViewController {
+    
+    //MARK:- For InternetConnectivity Observers
+       func addObserverForInternetConnectivity() {
+           NotificationCenter.default.addObserver(self, selector: #selector(self.gotInternetConnectivity), name: NSNotification.Name.INTERNET_CONNECTION, object: nil)
+       }
+       
+       func removeObserverForInternetConnectivity() {
+           NotificationCenter.default.removeObserver(self, name: NSNotification.Name.INTERNET_CONNECTION, object: nil)
+       }
+       
+       @objc func gotInternetConnectivity() {
+           SHOW_TOAST("Connection established")
+       }
+}

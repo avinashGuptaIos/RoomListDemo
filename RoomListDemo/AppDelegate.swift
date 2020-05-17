@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     static let shared = UIApplication.shared.delegate as! AppDelegate
+    var reach: Reachability?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -33,6 +34,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+    
+    //MARK: SET_UP_FOR_Internet_Connection
+        
+        func setUpInternetConnectionSettings() {
+              self.reach = Reachability.forInternetConnection()
+            
+            // Tell the reachability that we DON'T want to be reachable on 3G/EDGE/CDMA
+            self.reach!.reachableOnWWAN = false
+            
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(reachabilityChanged),
+                name: NSNotification.Name.reachabilityChanged,
+                object: nil
+            )
+            self.reach!.startNotifier()
+            }
+        
+        @objc func reachabilityChanged(notification: NSNotification) {
+            if self.reach!.isReachableViaWiFi() || self.reach!.isReachableViaWWAN() {
+    //            print("Service avalaible!!!")
+                NotificationCenter.default.post(name: NSNotification.Name.INTERNET_CONNECTION, object: nil)
+
+            } else {
+    //            print("No service avalaible!!!")
+               SHOW_TOAST("No internet connection")
+            }
+        }
 
     // MARK: - Core Data stack
 

@@ -39,6 +39,7 @@
 		04B862A12470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
 		04B862A22470031C00C37684 /* LockDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A02470031C00C37684 /* LockDetailsViewModel.swift */; };
 		04B862A8247097DE00C37684 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B862A7247097DE00C37684 /* NavigationController.swift */; };
+		04B862AA2470DA4300C37684 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04B862A92470DA4300C37684 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		04B8629D246FFE9400C37684 /* LockDetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LockDetailsTableViewCell.xib; sourceTree = "<group>"; };
 		04B862A02470031C00C37684 /* LockDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockDetailsViewModel.swift; sourceTree = "<group>"; };
 		04B862A7247097DE00C37684 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		04B862A92470DA4300C37684 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 		04B86263246F52EC00C37684 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				04B862A92470DA4300C37684 /* icon.png */,
 				04B8626C246F539300C37684 /* CommonViews */,
 				04B8626B246F539000C37684 /* Constants */,
 				04B8627D246F561A00C37684 /* Helpers */,
@@ -333,6 +336,7 @@
 			files = (
 				04B86298246FE71B00C37684 /* RoomDataTableViewCell.xib in Resources */,
 				04B8629F246FFE9400C37684 /* LockDetailsTableViewCell.xib in Resources */,
+				04B862AA2470DA4300C37684 /* icon.png in Resources */,
 				04B8624E246F522900C37684 /* LaunchScreen.storyboard in Resources */,
 				04B8624B246F522900C37684 /* Assets.xcassets in Resources */,
 				04B86246246F521F00C37684 /* Main.storyboard in Resources */,

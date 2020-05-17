@@ -29,10 +29,6 @@ func SHOW_TOAST(_ msg: String?) {
     }
 }
 
-func CONNECTION_ESTABLISHED() {
-//    Utils.writeToast("Connection established")
-}
-
 func PRINT_LOG(_ msg: Any?) {
     if let message = msg {
         print("Something happened \(message)")
@@ -43,11 +39,6 @@ func PRINT_LOG(_ msg: Any?) {
 
 extension Notification.Name {
     public static let INTERNET_CONNECTION = Notification.Name(rawValue: "InternetConnection")
-    
-    public struct Task {
-        public static let Task_Notification = Notification.Name(rawValue: "taskNotification")
-        
-    }
 }
 
 //MARK: Extention for Array
