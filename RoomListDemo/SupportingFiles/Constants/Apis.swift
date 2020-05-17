@@ -8,7 +8,6 @@
 
 import Foundation
 
-//MARK: Singletons
 class CustomDate {
    private var date: Date?
     init() { date = Date() }
@@ -17,6 +16,8 @@ class CustomDate {
         return "\(Int(date?.timeIntervalSince1970 ?? 0.0))"
     }
 }
+
+//MARK: Singletons
 
 let Shared_CustomJsonEncoder = CustomJsonEncoder.shared.getSharedEncoder()
 class CustomJsonEncoder {

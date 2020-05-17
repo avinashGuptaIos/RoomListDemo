@@ -41,16 +41,3 @@ extension Notification.Name {
     public static let INTERNET_CONNECTION = Notification.Name(rawValue: "InternetConnection")
 }
 
-//MARK: Extention for Array
-
-extension Array {
-    func indexesOf<T : Equatable>(object:T) -> [Int] {
-        var result: [Int] = []
-        for (index,obj) in self.enumerated() {
-            if obj as! T == object {
-                result.append(index)
-            }
-        }
-        return result
-    }
-}
